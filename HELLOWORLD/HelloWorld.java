@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class HelloWorld {
-        public static void main(String[] args) throws Exception
+        public static void Main(String[] args) throws Exception
         {
             Scanner ler = new Scanner(System.in);
             System.out.printf("Digite seu nome:\n");
