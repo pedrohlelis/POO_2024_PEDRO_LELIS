@@ -82,34 +82,33 @@ public class Main {
 
         System.out.println("\nTITULAR: " + conta.getNomeTitular());
         System.out.println("SALDO: " + conta.getSaldo());
+        System.out.println("1- Depositar\n2- Sacar\n0- Voltar");
 
-        while(continueLoop){
-            System.out.println("1- Depositar\n2- Sacar\n0- Voltar");
-            String opcao = leitor.next();
-            switch (opcao){
-                case "1":
-                    if(conta.depositar(SolicitarValorDeposito(leitor))){
-                        System.out.println("Deposito Realizado com sucesso!");
-                    }else {
-                        System.out.println("Ocorreu um erro ao tentar realizar deposito.");
-                    }
-                    SolicitarAcaoDaConta(conta, leitor);
-                    break;
-                case "2":
-                    if(conta.sacar(SolicitarValorSaque(leitor))){
-                        System.out.println("Saque Realizado com sucesso!");
-                    }else {
-                        System.out.println("Ocorreu um erro ao tentar realizar saque.");
-                    }
-                    SolicitarAcaoDaConta(conta, leitor);
-                    break;
-                case "0":
-                    continueLoop = false;
-                    ExibirMenuPrincipal(leitor);
-                    break;
-                default:
-                    System.out.println("Digite uma opcao valida.");
-            }
+        String opcao = leitor.next();
+        switch (opcao){
+            case "1":
+                if(conta.depositar(SolicitarValorDeposito(leitor))){
+                    System.out.println("Deposito Realizado com sucesso!");
+                }else {
+                    System.out.println("Ocorreu um erro ao tentar realizar deposito.");
+                }
+                SolicitarAcaoDaConta(conta, leitor);
+                break;
+            case "2":
+                if(conta.sacar(SolicitarValorSaque(leitor))){
+                    System.out.println("Saque Realizado com sucesso!");
+                }else {
+                    System.out.println("Ocorreu um erro ao tentar realizar saque.");
+                }
+                SolicitarAcaoDaConta(conta, leitor);
+                break;
+            case "0":
+                ExibirMenuPrincipal(leitor);
+                break;
+            default:
+                System.out.println("Digite uma opcao valida.");
+                SolicitarAcaoDaConta(conta, leitor);
+                break;
         }
     }
 
@@ -120,8 +119,6 @@ public class Main {
     }
 
     public static String SolicitarNumeroConta(Scanner leitor){
-        Scanner leitorIn = new Scanner(System.in);
-
         System.out.println("Digite o numero da conta: ");
         String numero = leitor.next();
         return numero;
